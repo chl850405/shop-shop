@@ -1,8 +1,9 @@
 import React, { createContext, useContext } from "react";
-import { useProductReducer } from "./reducers";
-//
+import { useProductReducer } from './reducers'
+
 const StoreContext = createContext();
 const { Provider } = StoreContext;
+
 
 // instantiate our initial global state with the useProductReducer()
 // value prop is good to have included, as it opens us up to pass in more data for state if we need to
@@ -11,8 +12,10 @@ const { Provider } = StoreContext;
 const StoreProvider = ({ value = [], ...props }) => {
   const [state, dispatch] = useProductReducer({
     products: [],
+    cart: [],
+    cartOpen: false,
     categories: [],
-    currentCategory: "",
+    currentCategory: '',
   });
   // use this to confirm it works!
   console.log(state);
